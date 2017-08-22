@@ -1,0 +1,84 @@
+.checkbox {
+  border-left: none !important;
+}
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+textarea:hover {
+  border: #ddd 1px solid !important;
+}
+
+textarea:focus {
+  border: #ddd 1px solid !important;
+}
+
+.textarea:hover textarea {
+  border: #ddd 1px solid !important;
+}
+
+.textarea:hover textarea.ng-invalid {
+  border-left: 2px solid #ef5350 !important;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+textarea.ng-invalid {
+  border-left:2px solid #ef5350;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+textarea.ng-invalid:hover {
+  border-left: 2px solid #ef5350 !important;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+textarea.ng-invalid:focus {
+  border-left:2px solid #ef5350 !important;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+input.ng-invalid {
+  border-left:2px solid #ef5350;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+div.ng-invalid {
+  border: 0px;
+}
+
+textarea.ng-valid {
+  border: #ddd 1px solid !important;
+}
+
+.errorMessage {
+  font-size: 12px;
+  color: #ef5350;
+}
+
+label.checkboxlabel{
+  font-weight: normal;
+}
+
+select {
+  width:100%;
+}
+
+.dropdown {
+  width:100%;
+}
+
+input[type=radio] {
+  margin-right:6px;
+}
+
+label {
+  font-weight: normal;
+}

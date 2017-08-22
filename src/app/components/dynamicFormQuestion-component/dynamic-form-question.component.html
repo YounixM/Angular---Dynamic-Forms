@@ -1,0 +1,61 @@
+<div>
+  <small [attr.for]="question.key"
+         class="checkbox-label"
+         id="question.key"
+         *ngIf="question.controlType !== 'cb'">
+    {{question.label}}
+    <i class="fa fa-info" *ngIf="question.tooltipInfo"></i>
+  </small>
+  <br>
+  <div [formGroup]="form"
+       [class]="question.controlType"
+  >
+    <div [ngSwitch]="question.controlType" class="form-group">
+      <input class="form-control"
+             *ngSwitchCase="'textbox'"
+             [formControlName]="question.key"
+             [id]="question.key"
+             [type]="question.type"
+             [placeholder]="question.placeholder"
+             [value]="question.value"
+             [readonly]="question.readonly"
+      >
+
+      <div *ngSwitchCase="'radiobutton'">
+        <div *ngFor="let opt of question.options">
+          <label>
+          <input type="radio" [value]="opt.key"
+                 [name]="question.key" [formControlName]="question.key">
+            <small>{{opt.value}}</small></label>
+        </div>
+      </div>
+
+      <select [id]="question.key"
+              *ngSwitchCase="'dropdown'"
+              [formControlName]="question.key">
+        <option disabled selected hidden value=''>Please Select</option>
+        <option *ngFor="let opt of question.options" [value]="opt.key">
+          {{opt.value}}
+        </option>
+      </select>
+
+      <label class="checkboxlabel" *ngSwitchCase="'cb'">
+        <input type="checkbox"
+               [id]="question.key"
+               [formControlName]="question.key"
+               (change)="callGA('send', 'event', 'Form Input', formName, question.key)">
+        <small>{{question.label}}</small>
+      </label>
+
+      <textarea *ngSwitchCase="'textarea'"
+                [id]="question.key"
+                class="form-control"
+                rows="3"
+                [formControlName]="question.key"
+                [value]="question.value"></textarea>
+
+    </div>
+    <div class="errorMessage margin-bottom-10" *ngIf="!isValid">{{errorMessage}}</div>
+  </div>
+</div>
+<div class="clearfix"></div>

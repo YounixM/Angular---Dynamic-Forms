@@ -1,0 +1,24 @@
+<div class="form-div col-md-12" id="form-div">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form" class="form" id="form">
+
+    <div *ngFor="let question of questions" class="form-row">
+      <df-question [question]="question" [form]="form" [formName]="formName"></df-question>
+       <div class="clearfix"> </div>
+    </div>
+    <div class="clearfix"> </div>
+
+    <div class="errorMessage margin-bottom-10" *ngIf="!isValid">{{errorMessage}}</div>
+    <div class="submiterrorMessage margin-bottom-10" *ngIf="errorInSubmitting">{{submitErrorMessage}}</div>
+
+    <div class="clearfix"> </div>
+
+    <div class="form-row form-submit margin-top-20" id="form-submit">
+      <button type="submit" class="submitbtn" [disabled]="!isValid" *ngIf="!submitting">
+        {{submitButtonText}}
+      </button>
+      <button type="submit" class="submitbtn" disabled *ngIf="submitting">
+        Submitting
+      </button>
+    </div>
+  </form>
+</div>

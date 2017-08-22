@@ -1,0 +1,38 @@
+:host{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+
+.submitbtn, .submitbtn:hover {
+  padding-top:10px;
+  padding-bottom:10px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  background-color: #67B53F;
+  border-color: #67B53F;
+
+}
+
+
+.errorMessage {
+  font-size: 12px;
+  color: #ef5350;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.submiterrorMessage {
+  font-size: 100%;
+  color: #ef5350;
+}
+
+#form-submit:hover{
+    border: none;
+}
+
